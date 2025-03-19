@@ -5,6 +5,9 @@ public class Car {
     private String model;
     private int mileage;
 
+    public Car() {
+    }
+
     public Car(int VIN, String model, int mileage) {
         this.VIN = VIN;
         this.model = model;
