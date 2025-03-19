@@ -2,11 +2,9 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import web.model.Car;
 import web.service.CarService;
-
-import java.util.List;
 
 @Controller
 public class CarController {
@@ -19,11 +17,8 @@ public class CarController {
     }
 
     @GetMapping("/cars")
-    public String getCars() {
-        List<Car> cars = carService.getSpecifiedCars(2);
-        for (Car car : cars){
-            System.out.println(car);
-        }
+    public String getCars(Model model) {
+        model.addAttribute("cars", carService.getSpecifiedCars(2));
         return "car";
     }
 }
