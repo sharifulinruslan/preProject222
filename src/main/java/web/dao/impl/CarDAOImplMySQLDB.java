@@ -1,6 +1,7 @@
 package web.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -28,5 +29,16 @@ public class CarDAOImplMySQLDB implements CarDAO {
     @Override
     public int getNumberOfCars() {
         return jdbcTemplate.queryForObject("select count(*) from cars", Integer.class);
+    }
+
+    @Override
+    public Car getCarByVIN(int VIN) {
+        Car car;
+        try {
+            car = jdbcTemplate.queryForObject("select * from cars where VIN=?", new BeanPropertyRowMapper<>(Car.class), VIN);
+        } catch (EmptyResultDataAccessException e) {
+            car = null;
+        }
+        return car;
     }
 }

@@ -8,4 +8,5 @@ public interface CarDAO {
     public List<Car> getSpecifiedCars(int countOfCars);
 
     public int getNumberOfCars();
+    public Car getCarByVIN(int VIN);
 }

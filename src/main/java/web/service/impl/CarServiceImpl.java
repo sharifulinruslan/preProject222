@@ -27,4 +27,9 @@ public class CarServiceImpl implements CarService {
     public int getNumberOfCars() {
         return carDAO.getNumberOfCars();
     }
+
+    @Override
+    public Car getCarByVIN(int VIN) {
+        return carDAO.getCarByVIN(VIN);
+    }
 }

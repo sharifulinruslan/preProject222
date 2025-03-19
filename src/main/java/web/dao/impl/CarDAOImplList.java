@@ -32,4 +32,9 @@ public class CarDAOImplList implements CarDAO {
     public int getNumberOfCars() {
         return cars != null ? cars.size() : 0;
     }
+
+    @Override
+    public Car getCarByVIN(int VIN) {
+        return null;
+    }
 }
