@@ -3,9 +3,9 @@ package web.model;
 public class Car {
     private int VIN;
     private String model;
-    private String mileage;
+    private int mileage;
 
-    public Car(int VIN, String model, String mileage) {
+    public Car(int VIN, String model, int mileage) {
         this.VIN = VIN;
         this.model = model;
         this.mileage = mileage;
@@ -27,11 +27,20 @@ public class Car {
         this.model = model;
     }
 
-    public String getMileage() {
+    public int getMileage() {
         return mileage;
     }
 
-    public void setMileage(String mileage) {
+    public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "VIN=" + VIN +
+                ", model='" + model + '\'' +
+                ", mileage=" + mileage +
+                '}';
     }
 }
